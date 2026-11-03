@@ -28,11 +28,11 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), 'VITE_');
   const api = (env.VITE_API_BASE || portal.api || DEFAULT_API).replace(/\/+$/, '');
   return {
+    // GitHub Pages serves this repository from /transparency-portal/.
+    base: process.env.GITHUB_ACTIONS ? '/transparency-portal/' : '/',
     plugins: [react(), portalHtml(api)],
     server: {
       host: '0.0.0.0',
-      // Reserved in ~/projects/ports.md (transparency-portal). strictPort so a
-      // collision fails loudly instead of moving the URL.
       port: 5132,
       strictPort: true,
       allowedHosts: ['dev.neonplayground.com'],
