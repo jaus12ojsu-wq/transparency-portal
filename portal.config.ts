@@ -1,18 +1,23 @@
 /**
- * Baliwag, Bulacan transparency portal configuration.
- * The place query captures projects whose titles name Baliwag.
+ * Province of Bulacan transparency portal configuration.
+ * Includes Bulacan DPWH district offices and province-named projects.
  */
 import { defineConfig } from './src/config';
 
 export default defineConfig({
-  id: 'baliwag-bulacan',
-  kind: 'municipality',
-  name: 'City of Baliwag, Bulacan',
-  shortName: 'Baliwag',
+  id: 'bulacan-province',
+  kind: 'province',
+  name: 'Province of Bulacan',
+  shortName: 'Bulacan',
   operator: { name: 'BetterGov.ph', url: 'https://bettergov.ph' },
   scope: {
-    offices: [],
-    places: [{ label: 'Baliwag', region: 'III' }],
+    offices: [
+      'Bulacan 1st District Engineering Office',
+      'Bulacan 2nd District Engineering Office',
+      'Bulacan 3rd District Engineering Office',
+      'Bulacan Sub-District Engineering Office',
+    ],
+    places: [{ label: 'Bulacan', region: 'III' }],
     districts: [],
     exclude: [],
   },
